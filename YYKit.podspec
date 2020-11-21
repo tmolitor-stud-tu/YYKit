@@ -1,13 +1,13 @@
 Pod::Spec.new do |s|
   s.name         = 'YYKit'
   s.summary      = 'A collection of iOS components.'
-  s.version      = '1.0.9'
+  s.version      = '2.0.0'
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.authors      = { 'ibireme' => 'ibireme@gmail.com' }
   s.social_media_url = 'http://blog.ibireme.com'
-  s.homepage     = 'https://github.com/ibireme/YYKit'
-  s.platform     = :ios, '6.0'
-  s.ios.deployment_target = '6.0'
+  s.homepage     = 'https://github.com/tmolitor-stud-tu/YYKit'
+  s.platform     = :ios, '10.0'
+  s.ios.deployment_target = '10.0'
   s.source       = { :git => 'https://github.com/ibireme/YYKit.git', :tag => s.version.to_s }
   
   s.requires_arc = true
@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   end
 
   s.libraries = 'z', 'sqlite3'
-  s.frameworks = 'UIKit', 'CoreFoundation', 'CoreText', 'CoreGraphics', 'CoreImage', 'QuartzCore', 'ImageIO', 'AssetsLibrary', 'Accelerate', 'MobileCoreServices', 'SystemConfiguration'
+  s.frameworks = 'UIKit', 'CoreFoundation', 'CoreText', 'CoreGraphics', 'CoreImage', 'QuartzCore', 'ImageIO', 'AssetsLibrary', 'Accelerate', 'CoreServices', 'SystemConfiguration'
   s.ios.vendored_frameworks = 'Vendor/WebP.framework'
 
 end
