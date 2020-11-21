@@ -41,7 +41,7 @@ __has_include("webp/demux.h")  && __has_include("webp/mux.h")
 #endif
 #endif
 
-@import Photos;
+
 
 
 
@@ -2784,22 +2784,8 @@ CGImageRef YYCGImageCreateWithWebPData(CFDataRef webpData,
     objc_setAssociatedObject(self, @selector(isDecodedForDisplay), @(isDecodedForDisplay), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (void)saveToAlbumWithCompletionBlock:(void(^)(NSError *error))completionBlock {
-    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
-        PHAssetCollection* album = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil][0];
-        // Request creating an asset from the image.
-        PHAssetChangeRequest* createAssetRequest = [PHAssetChangeRequest creationRequestForAssetFromImage:self];
-         // Request editing the album.
-        PHAssetCollectionChangeRequest* albumChangeRequest = [PHAssetCollectionChangeRequest changeRequestForAssetCollection:album];
-         // Get a placeholder for the new asset and add it to the album editing request.
-        PHObjectPlaceholder* assetPlaceholder = [createAssetRequest placeholderForCreatedAsset];
-        [albumChangeRequest addAssets:@[ assetPlaceholder ]];
-     } completionHandler:^(BOOL success, NSError* error) {
-        if (!completionBlock) return;
-        dispatch_async(dispatch_get_main_queue(), ^{
-            completionBlock(success ? nil : error);
-        });
-    }];
+- (void)saveToAlbumWithCompletionBlock:(void(^)(NSURL *assetURL, NSError *error))completionBlock {
+    NSLog(@"saveToAlbumWithCompletionBlock: IS DEPRECATED");
 }
 
 - (NSData *)imageDataRepresentation {
